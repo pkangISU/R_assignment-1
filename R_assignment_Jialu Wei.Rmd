@@ -6,6 +6,7 @@ output: html_document
 ---
 
 #Environment setting
+# Good job to include all the details to install and apply the packages that we need for our assignment!
 ```{r}
 if (!require("tidyverse")) install.packages("tidyverse")
 library(tidyverse)
@@ -24,6 +25,8 @@ library(dplyr)
 ```
 
 Reading the data from the git hub repository 
+
+# Nice and clear directory to import files to R!
 ```{r}
 fang_et_al <- read.table("https://raw.githubusercontent.com/EEOB-BioData/BCB546X-Fall2018/master/assignments/UNIX_Assignment/fang_et_al_genotypes.txt", sep = "\t",header = T)
 snp_position <- read.table("https://raw.githubusercontent.com/EEOB-BioData/BCB546X-Fall2018/master/assignments/UNIX_Assignment/snp_position.txt",sep = "\t", fill = TRUE, header = T)
@@ -32,7 +35,7 @@ snp_position <- read.table("https://raw.githubusercontent.com/EEOB-BioData/BCB54
 
 
 #############Part I#############
-
+# DO we need to include this in the assignment? I did not do it. It should be OK.
 some of the results:
 
 [1] 2782  986 
@@ -52,6 +55,7 @@ both files are data.frame;
 ...
 
 #Data inspection
+# Nice job to include all the informations we need about the files that we work on.
 ```{r}
 head(fang_et_al) # print the first few rows of the data
 head(snp_position)
@@ -71,7 +75,7 @@ levels(snp_position$Chromosome)
 ```
 
 #Data processing
-
+# Nice for loop to generate those 40 files!
 ```{r}
 #extract the data needed 
 geno_maize <- filter(fang_et_al, `Group`== c("ZMMIL","ZMMLR","ZMMMR")) %>% t() %>% as.data.frame() 
@@ -155,6 +159,8 @@ ggplot(melt_all)+ geom_bar(aes(Group))+xlab("Group") +ylab("Total Number of SNPs
 
 
 #plot showing missing data rate and heterozygosity rates for each species and each group
+# It would be better if you can save the images that you generated.
+# It is clear and nice work flow to generate the images!
 ```{r}
 genotype_basic <- fang_et_al[,-2]
 genotype_basic[genotype_basic[] == "?/?"] = NA
@@ -196,5 +202,5 @@ teosinte_own_counts<-ddply(teosinte_own_melt,c("Chromosome"),summarise,total_hom
 teosinte_own_counts_melt<-melt(teosinte_own_counts,measure.vars = c("total_homozygous","total_heterozygous","total_NA"))
 ggplot(teosinte_own_counts_melt,aes(x=Chromosome,y=value,fill=variable))+geom_bar(stat="identity")+ggtitle("Teosinte")
 
-
+# You have done such an excellent job:)
 ```
