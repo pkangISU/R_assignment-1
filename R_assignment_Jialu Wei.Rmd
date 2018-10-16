@@ -202,5 +202,5 @@ teosinte_own_counts<-ddply(teosinte_own_melt,c("Chromosome"),summarise,total_hom
 teosinte_own_counts_melt<-melt(teosinte_own_counts,measure.vars = c("total_homozygous","total_heterozygous","total_NA"))
 ggplot(teosinte_own_counts_melt,aes(x=Chromosome,y=value,fill=variable))+geom_bar(stat="identity")+ggtitle("Teosinte")
 
-# You have done such an excellent job:)
+# You have done such an excellent job!!!!!
 ```
